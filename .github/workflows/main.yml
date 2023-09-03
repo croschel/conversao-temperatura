@@ -4,22 +4,17 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
   # allows you to run this workflow manually from Actions tab
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs: 
-  build: 
+  CI: 
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
-      
-      - name: Run a one-line script
-        run: echo Hello, World!
 
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project
+      - name: Setup Node JS
+      - uses: actions/setup-node@v3.8.1
+        with: 
+           node-version: 18.16.0
