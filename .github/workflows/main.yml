@@ -18,3 +18,9 @@ jobs:
         uses: actions/setup-node@v3.8.1
         with: 
           node-version: 18.16.0
+
+      - name: Install Mocha and packages for Unit Testing
+        run: |
+          cd src;
+          npm install -g mocha;
+          npm install;
